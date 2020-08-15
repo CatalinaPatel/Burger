@@ -9,7 +9,6 @@ class Router {
         this.app = expressApp;
     }
 
-
     start() {
         this.index();
         this.add();
@@ -28,7 +27,6 @@ class Router {
                 .catch(error => console.log(error));
         });
     }
-
 
     add() {
         this.app.post('/add', (req, res) => {
