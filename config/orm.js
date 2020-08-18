@@ -1,7 +1,6 @@
 
 'use strict';
 
-
 const dbConn = require('./connection');
 
 class ORM {
@@ -23,7 +22,6 @@ class ORM {
             });
         });
     }
-
 
     insertOne(burgerName, devoured = false) {
         const data = {

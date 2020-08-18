@@ -3,7 +3,6 @@
 // const express = require('express');
 const burger = require('../models/burger');
 
-
 class Router {
     constructor(expressApp) {
         this.app = expressApp;
