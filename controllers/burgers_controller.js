@@ -10,13 +10,13 @@ class Router {
 
     start() {
         this.index();
-        this.add();
-        this.devour();
-        this.remove();
+        //this.add();
+        //this.devour();
+        //this.remove();
     }
 
     index() {
-        this.app.get('/', (req, res) => {
+        app.get('/', (req, res) => {
             burger.list()
                 .then(burgers => {
                     res.render('index', {
@@ -28,7 +28,7 @@ class Router {
     }
 
     add() {
-        this.app.post('/add', (req, res) => {
+        app.post('/add', (req, res) => {
             const burgerName = req.body.burgerName;
 
             if (/^\W*$/.test(burgerName)) {
@@ -45,7 +45,7 @@ class Router {
     }
 
     devour() {
-        this.app.put('/devour/:id', (req, res) => {
+        app.put('/devour/:id', (req, res) => {
             // Convert "true" string to 1 (boolean)
             if ('devoured' in req.body && req.body['devoured'] === 'true') {
                 req.body['devoured'] = 1;
@@ -63,7 +63,7 @@ class Router {
     }
 
     remove() {
-        this.app.delete('/remove/:id', (req, res) => {
+        app.delete('/remove/:id', (req, res) => {
             burger.delete(parseInt(req.params.id))
                 .then(result => {
                     res.redirect('/');
